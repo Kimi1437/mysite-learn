@@ -15,8 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path  # 这个include的函数是很有用的，设计这个就是为了应用程序的即插即用
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')),  # 将我们应用程序的路由加入到项目里面的路由
+    path('admin/', admin.site.urls)
+    
 ]
